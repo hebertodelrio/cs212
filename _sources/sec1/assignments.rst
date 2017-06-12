@@ -61,7 +61,20 @@ Swapping values of 2 variables in python is very simple.
 
 When executing assignments, python evaluates the right hand side first and then assigns those values to the variables specified in the left hand side.
 
-.. problem:: What will be output of the following program.
+.. problem:: What will be the output of the following program? Can you explain?
+
+.. code-block:: python
+
+    x = 1
+    print(x)
+    x = x + 1
+    print(x)
+    x = x + 1
+    print(x)
+    x = x + 1
+    print(x)
+
+.. problem:: What will be the output of the following program? Can you explain?
 
 .. code-block:: python
 
@@ -70,7 +83,7 @@ When executing assignments, python evaluates the right hand side first and then 
     x = 2
     print(x, y)
 
-.. problem:: What will be the output of the following program.
+.. problem:: What will be the the output of the following program? Can you explain?
 
 .. code-block:: python
 
@@ -78,7 +91,7 @@ When executing assignments, python evaluates the right hand side first and then 
     x, y = y, x + 2
     print(x, y)
 
-.. problem:: What will be the output of the following program.
+.. problem:: What will be the output of the following program? Can you explain?
 
 .. code-block:: python
 
