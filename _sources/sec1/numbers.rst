@@ -71,11 +71,11 @@ The operators can be combined.
 It is important to understand how these compound expressions are evaluated. The
 operators have precedence, a kind of priority that determines which operator is
 applied first. Among the numerical operators, the precedence of operators is as
-follows, from low precedence to high.
+follows, from high precedence to low (EMDAS in PEMDAS).
 
-* ``+``, ``-``
-* ``*``, ``/``, ``//``, ``%``
 * ``**``
+* ``*``, ``/``, ``//``, ``%``
+* ``+``, ``-``
 
 When we compute ``2 + 3 * 4``, ``3 * 4`` is computed first as the precedence of
 ``*`` is higher than ``+`` and then the result is added to 2.
@@ -85,23 +85,38 @@ When we compute ``2 + 3 * 4``, ``3 * 4`` is computed first as the precedence of
     >>> 2 + 3 * 4
     14
 
-We can use parenthesis to specify the explicit groups.
+The following is what happens when Python evaluates the expression `1 + 2 - 3 * 4 + 2 ** 4`:
+
+.. code-block:: python
+
+    1 + 2 - 3 * 4 + 2 ** 4
+                      ↓
+    1 + 2 - 3 * 4 +   16
+              ↓
+    1 + 2 -   12  +   16
+      ↓
+      3   -   12  +   16
+          ↓
+          -9      +   16
+                  ↓
+                  7
+
+We can use parenthesis to specify the explicit groups and change the precedence order
+(P in PEMDAS).
 
 .. code-block:: python
 
     >>> (2 + 3) * 4
     20
 
-All the operators except ``**`` are left-associative, that means that the application of the operators starts from left to right.
+All the operators except ``**`` are left-associative, that means that when two (or more)
+operators with the same order of precedence are found in an expression, the application
+of the operators starts from left to right (PEMDAS).
+
+.. problem:: What will be the output of the following program? Can you explain?
 
 .. code-block:: python
 
-    1 + 2 + 3 * 4 + 5
-      ↓
-      3   + 3 * 4 + 5
-              ↓
-      3   +   12  + 5
-          ↓
-          15      + 5
-                  ↓
-                 20
+    print(2**2**3)
+    print(2**(2**3))
+    print((2**2)**3)
