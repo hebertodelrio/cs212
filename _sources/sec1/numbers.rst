@@ -120,3 +120,5 @@ of the operators starts from left to right (PEMDAS).
     print(2**2**3)
     print(2**(2**3))
     print((2**2)**3)
+
+.. problem:: What is the value of the following expression: `40 // 5 * 5 - 6 // 2 * 3 + 4 + 5 * 2 // 10`? Can you explain?
